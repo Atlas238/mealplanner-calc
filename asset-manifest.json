@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mealplanner-calc/static/css/main.6b96e684.chunk.css",
+    "main.js": "/mealplanner-calc/static/js/main.01dab773.chunk.js",
+    "main.js.map": "/mealplanner-calc/static/js/main.01dab773.chunk.js.map",
+    "runtime-main.js": "/mealplanner-calc/static/js/runtime-main.e71c4fc0.js",
+    "runtime-main.js.map": "/mealplanner-calc/static/js/runtime-main.e71c4fc0.js.map",
+    "static/js/2.be9d6e9a.chunk.js": "/mealplanner-calc/static/js/2.be9d6e9a.chunk.js",
+    "static/js/2.be9d6e9a.chunk.js.map": "/mealplanner-calc/static/js/2.be9d6e9a.chunk.js.map",
+    "static/js/3.7e89cc04.chunk.js": "/mealplanner-calc/static/js/3.7e89cc04.chunk.js",
+    "static/js/3.7e89cc04.chunk.js.map": "/mealplanner-calc/static/js/3.7e89cc04.chunk.js.map",
+    "index.html": "/mealplanner-calc/index.html",
+    "static/css/main.6b96e684.chunk.css.map": "/mealplanner-calc/static/css/main.6b96e684.chunk.css.map",
+    "static/js/2.be9d6e9a.chunk.js.LICENSE.txt": "/mealplanner-calc/static/js/2.be9d6e9a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e71c4fc0.js",
+    "static/js/2.be9d6e9a.chunk.js",
+    "static/css/main.6b96e684.chunk.css",
+    "static/js/main.01dab773.chunk.js"
+  ]
+}
