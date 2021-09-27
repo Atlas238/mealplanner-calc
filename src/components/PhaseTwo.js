@@ -1,0 +1,73 @@
+import React, { useState } from "react";
+
+import PatientCal from "./fragments/PatientCal";
+import PlanCard from "./fragments/PlanCard";
+
+export default function PhaseTwo({ active, setActive, patient }) {
+  const [goal, setGoal] = useState("maintain");
+  const [selected, setSelected] = useState(null);
+
+  const plans = [
+    {
+      id: 1,
+      name: "Core",
+      desc: "Description of Core",
+    },
+    {
+      id: 2,
+      name: "Core Vegan",
+      desc: "Description of Vegan",
+    },
+    {
+      id: 3,
+      name: "Core Vegitarian",
+      desc: "Description of Vegitarian",
+    },
+    {
+      id: 4,
+      name: "Mito",
+      desc: "Description of Mito",
+    },
+  ];
+
+  return (
+    <section className={active === 2 ? "phase-two active" : "phase-two"}>
+      <h4>Patient's Resting Metabolic Rate</h4>
+      <PatientCal patient={patient} goal={goal} />
+
+      <ul className="patient-goal">
+        <li
+          className={goal === "lose" ? `goal-item active` : `goal-item`}
+          onClick={() => setGoal("lose")}
+        >
+          Lose
+        </li>
+        <li
+          className={goal === "maintain" ? `goal-item active` : `goal-item`}
+          onClick={() => setGoal("maintain")}
+        >
+          Maintain
+        </li>
+        <li
+          className={goal === "gain" ? `goal-item active` : `goal-item`}
+          onClick={() => setGoal("gain")}
+        >
+          Gain
+        </li>
+      </ul>
+      <hr style={{ width: "75%", margin: "2% auto 0 auto" }} />
+      <div className="plancard-box">
+        {plans.map((plan, index) => (
+          <PlanCard
+            key={index}
+            plan={plan}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        ))}
+      </div>
+
+      <button onClick={() => setActive(3)}>Next</button>
+    </section>
+  );
+}

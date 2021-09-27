@@ -1,19 +1,46 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 
-import PatientForm from "./components/PatientForm";
+import PhaseOne from "./components/PhaseOne";
+import PhaseTwo from "./components/PhaseTwo";
+import PhaseThree from "./components/PhaseThree";
+
+import "./assets/sass/App.scss";
 
 function App() {
+  const [active, setActive] = useState(1);
+
+  const [patient, setPatient] = useState({
+    height: "5'8",
+    heightFt: 0,
+    heightIn: 0,
+    weight: 100,
+    age: 40,
+    sex: "M",
+    activity: 0,
+    submitted: false,
+  });
+
   return (
-    <main style={{ height: "100vh", width: "100%" }}>
-      <PatientForm />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-        crossorigin="anonymous"
+    <>
+      <PhaseOne
+        active={active}
+        setActive={setActive}
+        patient={patient}
+        setPatient={setPatient}
       />
-    </main>
+      <PhaseTwo
+        active={active}
+        setActive={setActive}
+        patient={patient}
+        setPatient={setPatient}
+      />
+      <PhaseThree
+        active={active}
+        setActive={setActive}
+        patient={patient}
+        setPatient={setPatient}
+      />
+    </>
   );
 }
 
