@@ -15,26 +15,19 @@ function App() {
     heightIn: 0,
     weight: 100,
     age: 40,
+    dob: {
+      month: 0,
+      day: 0,
+      year: 0,
+    },
     sex: "M",
-    activity: 0,
+    activity: 100,
     submitted: false,
   });
 
   return (
     <>
       <PhaseOne
-        active={active}
-        setActive={setActive}
-        patient={patient}
-        setPatient={setPatient}
-      />
-      <PhaseTwo
-        active={active}
-        setActive={setActive}
-        patient={patient}
-        setPatient={setPatient}
-      />
-      <PhaseThree
         active={active}
         setActive={setActive}
         patient={patient}

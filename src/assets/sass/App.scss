@@ -1,3 +1,15 @@
+// Setup
+@mixin card {
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+@mixin header {
+  margin-left: 1rem;
+}
+// --RESETS--
 * {
   margin: 0;
   padding: 0;
@@ -5,275 +17,100 @@
   font-size: 16px;
   color: rgb(59, 59, 59);
 }
-
 html {
   height: 100vh;
   width: 100%;
 }
-
 ::-webkit-scrollbar {
   display: none;
 }
+// --END RESETS--
 
-//___________________
-.phase-one {
-  opacity: 0;
-  position: absolute;
-  height: 100vh;
-  width: 100%;
+.patientsection {
+  display: flex;
+  justify-content: space-around;
+}
 
-  display: none;
-
-  // For Modal
-  .submit-warning {
-    display: none;
-    position: absolute;
-    background-color: gray;
-    opacity: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 3;
-    transition: all 200ms ease;
-    div {
-      background-color: white;
-      padding: 10rem;
-      p {
-        text-align: center;
-      }
-      button {
-        text-align: center;
-      }
-    }
-  }
-  .show {
-    opacity: 1;
-    display: block;
-  }
-  // End Modal
-
-  h1 {
-    font-size: 5rem;
-    text-align: center;
-  }
-
-  p {
-    text-align: center;
-    padding: 1rem;
-    font-size: 1.2rem;
-  }
-
-  .mainForm {
-    width: 50%;
-    margin: 5% auto;
+.mainForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .agegrp {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    .heightgrp {
-      position: relative;
-
+    .dobinputgrp {
       display: flex;
-      flex-direction: column;
-      align-items: center;
 
-      label {
-      }
       input {
-      }
-    }
-
-    .weightgrp {
-      position: relative;
-      label {
-      }
-      input {
-      }
-    }
-    .agegrp {
-      position: relative;
-      label {
-      }
-      input {
-      }
-    }
-    .sexgrp {
-      position: relative;
-      label {
-      }
-      input {
-      }
-    }
-  }
-  .activitygrp {
-    margin: 1rem;
-
-    h4 {
-      text-align: center;
-      font-size: 1.5rem;
-    }
-
-    .cardbox {
-      display: flex;
-      justify-content: center;
-
-      .activityCard {
-        padding: 1rem;
-        margin: 1rem;
-        border: 1px solid rgba(0, 0, 0, 0);
-        transition: all 250ms ease;
-        &:hover,
-        :focus {
-          border: 1px solid rgba(0, 0, 0, 0.2);
-        }
-      }
-
-      .selected {
-        transition: all 250ms ease;
-        border: 1px solid rgba(0, 0, 0, 1);
-        transform: scale(1.05);
-        &:hover,
-        :focus {
-          border: 1px solid rgba(0, 0, 0, 1);
-        }
+        width: 75px;
       }
     }
   }
 }
-//___________________
 
-// ------------------
-.phase-two {
-  opacity: 0;
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
+.activitygrp {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  display: none;
-  transition: all 250ms ease;
-
-  h4 {
-    margin-top: 5%;
-    text-align: center;
-    font-size: 2.5rem;
-  }
-
-  // Patient Calorie Counter styling here
-  .patientrmr {
-    width: fit-content;
-    margin: 1% auto;
-    p {
-      font-size: 3rem;
-    }
-  }
-
-  .patient-goal {
+  .cardbox {
     display: flex;
-    list-style-type: none;
-    width: fit-content;
-    margin: 0 auto;
-    .goal-item {
-      margin: 1rem;
-      font-size: 1.4rem;
-      color: rgba(0, 0, 0, 0.3);
-      transition: all 150ms ease;
-      user-select: none;
-      cursor: pointer;
-      &:hover {
-        color: rgba(0, 0, 0, 0.6);
-      }
+  }
+}
+
+.plancard-box {
+  // Section Labels
+  h6 {
+    font-size: 2rem;
+    @include header;
+  }
+  hr {
+    @include header;
+  }
+  // Cards
+  .plancard {
+    @include card;
+    width: 30%;
+
+    h4 {
+      font-size: 1.1rem;
     }
-    .active {
-      color: rgba(0, 0, 0, 1);
-      border-bottom: 1px solid black;
-      &:hover {
-        color: rgba(0, 0, 0, 1);
-      }
+    p {
+      font-size: 0.8rem;
     }
   }
-
-  .plancard-box {
-    margin: 5% auto;
+  // Boxes
+  .first,
+  .advanced,
+  .specific {
     display: flex;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-
-    .plancard {
-      padding: 1rem;
-      margin: 1rem 1rem;
-      height: 10%;
-      transition: all 250ms ease;
-      user-select: none;
-      cursor: pointer;
-      overflow-y: hidden;
-      h4 {
-        font-size: 1.5rem;
-      }
-      div {
-        display: flex;
-        align-content: center;
-        button {
-          margin: 1rem auto;
-          opacity: 0;
-          transition: opacity 250ms ease;
-        }
-      }
-      &:hover {
-        transform: scale(1.05);
-        border: 1px solid gray;
-        button {
-          top: 10px;
-        }
-      }
-    }
-    .selected {
-      transform: scale(1.02);
-      border: 1px solid gray;
-      div {
-        button {
-          margin: 1rem auto;
-          opacity: 1;
-        }
-      }
-    }
+    flex-wrap: wrap;
   }
 }
-// ------------------
 
-// ..................
-.phase-three {
-  opacity: 0;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
+.disordered-box {
+  h4 {
+    font-size: 2rem;
+    @include header;
+  }
+  hr {
+    @include header;
+  }
 
-  display: none;
-  .plancard-box {
-    margin: 0 auto;
+  .disorderedcard {
+    @include card;
+    width: 30%;
+
+    h6 {
+      font-size: 1.1rem;
+    }
+  }
+
+  .cardbox {
     display: flex;
-
-    .plancard {
-      padding: 1rem;
-      text-align: center;
-      width: 25%;
-      margin: 5%;
-      transition: all 250ms ease;
-      h4 {
-        font-size: 1.5rem;
-      }
-    }
-    .selected {
-      transform: scale(1.05);
-      border: 1px solid gray;
-    }
+    justify-content: center;
+    flex-wrap: wrap;
   }
-}
-// ..................
-// Makes current page visible
-.active {
-  opacity: 1;
-  display: block;
 }

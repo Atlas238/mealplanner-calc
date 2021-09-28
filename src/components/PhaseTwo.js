@@ -7,31 +7,8 @@ export default function PhaseTwo({ active, setActive, patient }) {
   const [goal, setGoal] = useState("maintain");
   const [selected, setSelected] = useState(null);
 
-  const plans = [
-    {
-      id: 1,
-      name: "Core",
-      desc: "Description of Core",
-    },
-    {
-      id: 2,
-      name: "Core Vegan",
-      desc: "Description of Vegan",
-    },
-    {
-      id: 3,
-      name: "Core Vegitarian",
-      desc: "Description of Vegitarian",
-    },
-    {
-      id: 4,
-      name: "Mito",
-      desc: "Description of Mito",
-    },
-  ];
-
   return (
-    <section className={active === 2 ? "phase-two active" : "phase-two"}>
+    <section id="2" className={"phase-two active"}>
       <h4>Patient's Resting Metabolic Rate</h4>
       <PatientCal patient={patient} goal={goal} />
 
@@ -56,16 +33,7 @@ export default function PhaseTwo({ active, setActive, patient }) {
         </li>
       </ul>
       <hr style={{ width: "75%", margin: "2% auto 0 auto" }} />
-      <div className="plancard-box">
-        {plans.map((plan, index) => (
-          <PlanCard
-            key={index}
-            plan={plan}
-            selected={selected}
-            setSelected={setSelected}
-          />
-        ))}
-      </div>
+      <div className="plancard-box">{/* Render plans... */}</div>
 
       <button onClick={() => setActive(3)}>Next</button>
     </section>
